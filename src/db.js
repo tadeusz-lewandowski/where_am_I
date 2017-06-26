@@ -14,6 +14,10 @@ let addMovie = (title, url, time) => {
   sqlite.run(`INSERT INTO movies (title, url, time) VALUES ('${title}', '${url}', '${time}')`);
 };
 
+let removeMovie = (id) => {
+	sqlite.run(`DELETE FROM movies WHERE id='${id}'`);
+}
+
 let getMoviesFromDb = () => {
   return function() {
 
@@ -28,5 +32,6 @@ let getMovies = getMoviesFromDb();
 
 module.exports = {
   addMovie,
-  getMovies
+  getMovies,
+	removeMovie
 }

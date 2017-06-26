@@ -2,7 +2,8 @@ let _   = require("ramda");
 let opn = require("opn");
 let {
   addMovie,
-  getMovies
+  getMovies,
+  removeMovie
 } = require("./db.js");
 
 
@@ -25,7 +26,10 @@ let createHeadline = createDOMElement("H2");
 // text -> link
 let createLink = createDOMElement("A");
 
-let createTime = createDOMElement("TIME")
+let createTime = createDOMElement("TIME");
+
+let createButton = createDOMElement("BUTTON");
+
 
 // link -> preventedLink
 let openLinkInBrowser = (linkObj) => {
@@ -35,6 +39,15 @@ let openLinkInBrowser = (linkObj) => {
   })
 
   return linkObj;
+}
+
+let addDeleteFunction = (button) => {
+  button.addEventListener("click", () => {
+    removeMovie(button.getAttribute("data-key"));
+    let movies = getMovies();
+    renderMovieList(movies);
+  });
+  return button;
 }
 
 let checkTypeOfLink = (movie) => {
@@ -76,9 +89,15 @@ let renderList = _.curry((list, movies) => {
 
     let time = createTime(movie.time);
 
+    let deleteButton = createButton("Delete");
+    deleteButton.className = "movies-list__delete-button";
+    deleteButton.setAttribute("data-key", movie.id);
+    deleteButton = addDeleteFunction(deleteButton);
+
     container.appendChild(title);
     container.appendChild(url);
     container.appendChild(time);
+    container.appendChild(deleteButton);
     list.appendChild(container);
   });
 });
