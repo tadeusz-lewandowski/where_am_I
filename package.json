@@ -23,7 +23,6 @@
     "electron-rebuild": "^1.5.11",
     "opn": "^5.1.0",
     "ramda": "^0.24.1",
-    "sqlite-sync": "^0.3.6",
-    "sqlite3": "https://github.com/mapbox/node-sqlite3/tarball/master"
+    "sqlite-sync": "^0.3.6"
   }
 }

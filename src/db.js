@@ -1,5 +1,5 @@
-let sqlite3 = require('sqlite3').verbose();
-var sqlite = require('sqlite-sync');
+
+let sqlite = require('sqlite-sync');
 let _ = require("ramda");
 
 // --- new code --
@@ -18,17 +18,11 @@ let removeMovie = (id) => {
 	sqlite.run(`DELETE FROM movies WHERE id='${id}'`);
 }
 
-let getMoviesFromDb = () => {
-  return function() {
-
-    let movies = []
-    movies = sqlite.run("SELECT * FROM movies");
-
-    return movies;
-  }
+let getMovies = () => {
+  let movies = []
+  movies = sqlite.run("SELECT * FROM movies");
+  return movies;
 }
-
-let getMovies = getMoviesFromDb();
 
 module.exports = {
   addMovie,

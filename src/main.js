@@ -125,7 +125,7 @@ let moviesTime = document.querySelector("#time");
 
 let movies = [];
 movies = getMovies();
-// addMovie("tvgry", "https://www.youtube.com/watch?v=dIoFUsq_Fao", "1:25")
+
 let renderMovieList = renderList(document.querySelector("#moviesList"));
 
 let submitForm = (event) => {
@@ -158,11 +158,8 @@ let submitForm = (event) => {
 
 }
 
-
-
 moviesForm.addEventListener("submit", submitForm);
 moviesTime.addEventListener("keydown", validateTyping);
-
 
 renderMovieList(_.reverse(movies));
 
