@@ -84,6 +84,7 @@ nav {
 
 .movie-details {
   margin-top: .75rem;
+
 }
 
 .movie-details > label {
@@ -129,4 +130,65 @@ nav {
 .movie-details > input[type="submit"]:hover {
   background: white;
   color: #A31637;
+}
+
+.burger {
+  background: rgba(0, 0, 0, 0);
+  border-radius: 4px;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid whitesmoke;
+  margin-top: .5rem;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  padding: .25rem 0;
+  cursor: pointer;
+  display: none;
+}
+
+.burger__line {
+  width: 1rem;
+  /*margin-left: .5rem;*/
+  border-bottom: 1px solid whitesmoke;
+}
+
+
+
+@media screen and (max-width: 50rem) {
+  .burger {
+    display: flex;
+  }
+
+  .movie-details {
+    background: #A31637;
+    position: fixed;
+    box-sizing: border-box;
+    height: 100%;
+    width: 20rem;
+    left: -20rem;
+    top: 2.2rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    transition: left 100ms ease-in;
+  }
+
+  .movie-details--opened {
+    left: 0rem;
+  }
+
+  .movie-details * {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .movie-details > input[type="text"] {
+    width: 100%;
+  }
+
+  .movie-details > input[name="time"] {
+    width: 6rem;
+  }
 }

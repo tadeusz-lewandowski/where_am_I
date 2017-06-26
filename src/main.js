@@ -165,3 +165,8 @@ moviesTime.addEventListener("keydown", validateTyping);
 
 
 renderMovieList(_.reverse(movies));
+
+let burger = document.querySelector("#burger");
+burger.addEventListener("click", () => {
+  moviesForm.classList.toggle("movie-details--opened");
+});
